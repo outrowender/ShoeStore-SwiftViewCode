@@ -64,7 +64,7 @@ extension CarouselImageView: UICollectionViewDataSource, UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let imageView: UIImageView = UIImageView(frame: .zero )
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .center
+        imageView.contentMode = .scaleAspectFit
         imageView.sd_setImage(with: urls[indexPath.row], placeholderImage: UIImage(named: "placeholder"))
         cell.contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
@@ -105,5 +105,20 @@ final class CarouselLayout: UICollectionViewFlowLayout {
         guard itemSize != newBounds.size else { return false }
         itemSize = newBounds.size
         return true
+    }
+}
+
+import SwiftUI
+import UIViewCanvas
+
+struct CarouselImageView_Preview: PreviewProvider {
+    static var previews: some View {
+        let images = [
+            URL(string: "https://raw.githubusercontent.com/outrowender/ShoeStore-SwiftViewCode/main/assets/tenis1.png")!
+        ]
+        
+        Group {
+            ViewCanvas(for: CarouselImageView(frame: .zero, urls: images))
+        }.previewLayout(.fixed(width: 300, height: 300))
     }
 }

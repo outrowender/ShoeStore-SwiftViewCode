@@ -44,9 +44,9 @@ class ShoeDetailView: UIView {
     
     lazy var imageViewer: UIView = {
         let images = [
-            URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png")!,
-            URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png")!,
-            URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png")!
+            URL(string: "https://raw.githubusercontent.com/outrowender/ShoeStore-SwiftViewCode/main/assets/tenis1.png")!,
+            URL(string: "https://raw.githubusercontent.com/outrowender/ShoeStore-SwiftViewCode/main/assets/tenis2.png")!,
+            URL(string: "https://raw.githubusercontent.com/outrowender/ShoeStore-SwiftViewCode/main/assets/tenis3.png")!
         ]
         
         let view = CarouselImageView(frame: .zero, urls: images)
