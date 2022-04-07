@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1938A827FF916500D77CBD /* CarouselImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1938A727FF916500D77CBD /* CarouselImageView.swift */; };
+		DD1938AB27FF983200D77CBD /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DD1938AA27FF983200D77CBD /* SDWebImage */; };
 		DD355CAE27FE362500885417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD355CAD27FE362500885417 /* AppDelegate.swift */; };
 		DD355CB027FE362500885417 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD355CAF27FE362500885417 /* SceneDelegate.swift */; };
 		DD355CB227FE362500885417 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD355CB127FE362500885417 /* ViewController.swift */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1938A727FF916500D77CBD /* CarouselImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImageView.swift; sourceTree = "<group>"; };
 		DD355CAA27FE362500885417 /* ShoeStore Swift ViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShoeStore Swift ViewCode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD355CAD27FE362500885417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD355CAF27FE362500885417 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1938AB27FF983200D77CBD /* SDWebImage in Frameworks */,
 				DD355CC927FE37DD00885417 /* UIViewCanvas in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +105,7 @@
 			children = (
 				DD355CCB27FE3B2100885417 /* NavigationBarUIView.swift */,
 				DD355CCD27FE43D800885417 /* RatingStarsUIView.swift */,
+				DD1938A727FF916500D77CBD /* CarouselImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			name = "ShoeStore Swift ViewCode";
 			packageProductDependencies = (
 				DD355CC827FE37DD00885417 /* UIViewCanvas */,
+				DD1938AA27FF983200D77CBD /* SDWebImage */,
 			);
 			productName = "ShoeStore Swift ViewCode";
 			productReference = DD355CAA27FE362500885417 /* ShoeStore Swift ViewCode.app */;
@@ -154,6 +160,7 @@
 			mainGroup = DD355CA127FE362500885417;
 			packageReferences = (
 				DD355CC727FE37DD00885417 /* XCRemoteSwiftPackageReference "UIViewCanvas" */,
+				DD1938A927FF983200D77CBD /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = DD355CAB27FE362500885417 /* Products */;
 			projectDirPath = "";
@@ -187,6 +194,7 @@
 				DD355CC427FE376400885417 /* ShoeDetailView.swift in Sources */,
 				DD355CB027FE362500885417 /* SceneDelegate.swift in Sources */,
 				DD355CCC27FE3B2100885417 /* NavigationBarUIView.swift in Sources */,
+				DD1938A827FF916500D77CBD /* CarouselImageView.swift in Sources */,
 				DD355CCE27FE43D800885417 /* RatingStarsUIView.swift in Sources */,
 				DD355CC627FE377000885417 /* ShoeDetailController.swift in Sources */,
 			);
@@ -408,6 +416,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD1938A927FF983200D77CBD /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.5;
+			};
+		};
 		DD355CC727FE37DD00885417 /* XCRemoteSwiftPackageReference "UIViewCanvas" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/outrowender/UIViewCanvas";
@@ -419,6 +435,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD1938AA27FF983200D77CBD /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD1938A927FF983200D77CBD /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		DD355CC827FE37DD00885417 /* UIViewCanvas */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DD355CC727FE37DD00885417 /* XCRemoteSwiftPackageReference "UIViewCanvas" */;

@@ -8,10 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var shoeDetailView: ShoeDetailView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func loadView() {
+        shoeDetailView = ShoeDetailView(frame: .zero)
+        view = shoeDetailView
     }
 
 

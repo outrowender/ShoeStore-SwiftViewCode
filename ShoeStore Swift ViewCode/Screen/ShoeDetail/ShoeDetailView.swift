@@ -19,7 +19,7 @@ class ShoeDetailView: UIView {
     }
     
     lazy var navigationHeader: UIView = {
-        let view = NavigationBarUIView(frame: .zero, title: "Feminino")
+        let view = NavigationBarUIView(frame: .zero, title: "Masculino")
         //view.delegate(with: self)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -42,6 +42,18 @@ class ShoeDetailView: UIView {
         return label
     }()
     
+    lazy var imageViewer: UIView = {
+        let images = [
+            URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png")!,
+            URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png")!,
+            URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png")!
+        ]
+        
+        let view = CarouselImageView(frame: .zero, urls: images)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         
@@ -59,6 +71,7 @@ class ShoeDetailView: UIView {
         self.addSubview(navigationHeader)
         self.addSubview(titleLabel)
         self.addSubview(ratingView)
+        self.addSubview(imageViewer)
     }
     
     func configConstraints(){
@@ -74,7 +87,12 @@ class ShoeDetailView: UIView {
             
             ratingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             ratingView.topAnchor.constraint(equalTo: navigationHeader.bottomAnchor, constant: 16),
-            ratingView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
+            ratingView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            
+            imageViewer.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            imageViewer.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            imageViewer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
+            imageViewer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
         ])
     }
 }
