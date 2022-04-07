@@ -36,9 +36,10 @@ class NavigationBarUIView: UIView {
     }()
     
     lazy var cartButton: UIButton = {
+        let icon = UIImage(systemName: "cart")
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "cart"), for: .normal)
+        button.setImage(icon, for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(self.cartButtonTapped), for: .touchUpInside)
         return button

@@ -19,38 +19,29 @@ class RatingStarsUIView: UIView {
         self.delegate = delegate
     }
     
-    lazy var filledStarImage1: UIImageView = {
-        let image = UIImage(systemName: "star")
-        let imageView = UIImageView(image: image!)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    lazy var starStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .fillProportionally
+        return stack
     }()
     
-    lazy var filledStarImage2: UIImageView = {
-        let image = UIImage(systemName: "star")
+    func buildStar(filled: Bool) -> UIImageView {
+        let image = UIImage(systemName: filled ? "star.fill" : "star")
         let imageView = UIImageView(image: image!)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleToFill
+        imageView.autoresizingMask = .flexibleHeight
+        imageView.tintColor = .orange // TODO: fill with correct color for dark mode
         return imageView
-    }()
+    }
     
-    lazy var filledStarImage3: UIImageView = {
-        let image = UIImage(systemName: "star")
-        let imageView = UIImageView(image: image!)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    lazy var filledStarImage4: UIImageView = {
-        let image = UIImage(systemName: "star")
-        let imageView = UIImageView(image: image!)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    init(frame: CGRect, rating: Int){
+    init(frame: CGRect, rating: Int, ofStars starsCount: Int){
         super.init(frame: frame)
         
-        configSuperView()
+        configSuperView(totalStars: starsCount, filledStars: rating)
         configConstraints()
     }
     
@@ -58,28 +49,23 @@ class RatingStarsUIView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configSuperView(){
-        self.backgroundColor = .systemBackground
-        self.addSubview(filledStarImage1)
-        self.addSubview(filledStarImage2)
-        self.addSubview(filledStarImage3)
-        self.addSubview(filledStarImage4)
-        //self.addSubview(<#T##view: UIView##UIView#>)
+    func configSuperView(totalStars: Int, filledStars: Int){
+        backgroundColor = .systemBackground
+        addSubview(starStackView)
+        
+        for i in 1...totalStars {
+            starStackView.addArrangedSubview(buildStar(filled: i <= filledStars))
+        }
     }
     
     func configConstraints(){
         NSLayoutConstraint.activate([
-            filledStarImage1.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            filledStarImage1.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            
-            filledStarImage2.leadingAnchor.constraint(equalTo: self.filledStarImage1.trailingAnchor),
-            filledStarImage2.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            
-            filledStarImage3.leadingAnchor.constraint(equalTo: self.filledStarImage2.trailingAnchor),
-            filledStarImage3.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            
-            filledStarImage4.leadingAnchor.constraint(equalTo: self.filledStarImage3.trailingAnchor),
-            filledStarImage4.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
+            //starStackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            //starStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+            starStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            starStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            starStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            starStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }
@@ -90,8 +76,8 @@ import UIViewCanvas
 struct RatingStarsUIView_Preview: PreviewProvider {
     static var previews: some View {
         Group {
-            ViewCanvas(for: RatingStarsUIView(frame: .zero, rating: 4))
-        }.previewLayout(.fixed(width: 100, height: 25))
+            ViewCanvas(for: RatingStarsUIView(frame: .zero, rating: 3, ofStars: 5))
+        }.previewLayout(.fixed(width: 125, height: 25))
     }
 }
 

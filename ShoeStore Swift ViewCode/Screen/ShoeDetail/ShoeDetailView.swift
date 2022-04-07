@@ -25,6 +25,13 @@ class ShoeDetailView: UIView {
         return view
     }()
     
+    lazy var ratingView: UIView = {
+        let view = RatingStarsUIView(frame: .zero, rating: 3, ofStars: 4)
+        //view.delegate(with: self)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Tênis Ultraboost Web DNA"
@@ -51,18 +58,23 @@ class ShoeDetailView: UIView {
         
         self.addSubview(navigationHeader)
         self.addSubview(titleLabel)
+        self.addSubview(ratingView)
     }
     
     func configConstraints(){
         NSLayoutConstraint.activate([
-            navigationHeader.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            navigationHeader.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            navigationHeader.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            navigationHeader.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            navigationHeader.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            navigationHeader.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             navigationHeader.heightAnchor.constraint(equalToConstant: 54),
             
-            titleLabel.topAnchor.constraint(equalTo: self.navigationHeader.bottomAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 16)
+            titleLabel.topAnchor.constraint(equalTo: navigationHeader.bottomAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: ratingView.leadingAnchor),
+            
+            ratingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            ratingView.topAnchor.constraint(equalTo: navigationHeader.bottomAnchor, constant: 16),
+            ratingView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
         ])
     }
 }
