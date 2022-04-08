@@ -54,6 +54,19 @@ class ShoeDetailView: UIView {
         return view
     }()
     
+    lazy var saveButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        let button = UIButton(type: .custom)
+        configuration.image = UIImage(systemName: "heart.circle")
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 30)
+        button.configuration = configuration
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .black
+ 
+        //button.addTarget(self, action: #selector(self.cartButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         
@@ -72,6 +85,7 @@ class ShoeDetailView: UIView {
         self.addSubview(titleLabel)
         self.addSubview(ratingView)
         self.addSubview(imageViewer)
+        self.addSubview(saveButton)
     }
     
     func configConstraints(){
@@ -84,6 +98,11 @@ class ShoeDetailView: UIView {
             titleLabel.topAnchor.constraint(equalTo: navigationHeader.bottomAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: ratingView.leadingAnchor),
+            
+            saveButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
+            saveButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            saveButton.heightAnchor.constraint(equalToConstant: 50),
+            saveButton.widthAnchor.constraint(equalToConstant: 50),
             
             ratingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             ratingView.topAnchor.constraint(equalTo: navigationHeader.bottomAnchor, constant: 16),
