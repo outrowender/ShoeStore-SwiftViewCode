@@ -62,9 +62,29 @@ class ShoeDetailView: UIView {
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .black
- 
+        
         //button.addTarget(self, action: #selector(self.cartButtonTapped), for: .touchUpInside)
         return button
+    }()
+    
+    lazy var sizeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Tamanho"
+        return label
+    }()
+    
+    lazy var colorsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Outras cores"
+        return label
+    }()
+    
+    lazy var sizePicker: UIView = {
+        let view = HorizontalPickerView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override init(frame: CGRect){
@@ -79,13 +99,15 @@ class ShoeDetailView: UIView {
     }
     
     func configSuperView(){
-        self.backgroundColor = .systemBackground
+        backgroundColor = .systemBackground
         
-        self.addSubview(navigationHeader)
-        self.addSubview(titleLabel)
-        self.addSubview(ratingView)
-        self.addSubview(imageViewer)
-        self.addSubview(saveButton)
+        addSubview(navigationHeader)
+        addSubview(titleLabel)
+        addSubview(ratingView)
+        addSubview(imageViewer)
+        addSubview(saveButton)
+        addSubview(sizeLabel)
+        addSubview(sizePicker)
     }
     
     func configConstraints(){
@@ -110,8 +132,16 @@ class ShoeDetailView: UIView {
             
             imageViewer.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             imageViewer.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            imageViewer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
-            imageViewer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
+            imageViewer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: -32),
+            imageViewer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
+            
+            sizeLabel.topAnchor.constraint(equalTo: imageViewer.bottomAnchor, constant: 16),
+            sizeLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            sizePicker.topAnchor.constraint(equalTo: sizeLabel.bottomAnchor, constant: 8),
+            sizePicker.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            sizePicker.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            sizePicker.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
 }

@@ -20,6 +20,7 @@
 		DD355CC927FE37DD00885417 /* UIViewCanvas in Frameworks */ = {isa = PBXBuildFile; productRef = DD355CC827FE37DD00885417 /* UIViewCanvas */; };
 		DD355CCC27FE3B2100885417 /* NavigationBarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD355CCB27FE3B2100885417 /* NavigationBarUIView.swift */; };
 		DD355CCE27FE43D800885417 /* RatingStarsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD355CCD27FE43D800885417 /* RatingStarsUIView.swift */; };
+		DD9EC07E2804D44100D3F194 /* HorizontalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9EC07D2804D44100D3F194 /* HorizontalPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DD355CC527FE377000885417 /* ShoeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailController.swift; sourceTree = "<group>"; };
 		DD355CCB27FE3B2100885417 /* NavigationBarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarUIView.swift; sourceTree = "<group>"; };
 		DD355CCD27FE43D800885417 /* RatingStarsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsUIView.swift; sourceTree = "<group>"; };
+		DD9EC07D2804D44100D3F194 /* HorizontalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				DD355CCB27FE3B2100885417 /* NavigationBarUIView.swift */,
 				DD355CCD27FE43D800885417 /* RatingStarsUIView.swift */,
 				DD1938A727FF916500D77CBD /* CarouselImageView.swift */,
+				DD9EC07D2804D44100D3F194 /* HorizontalPickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				DD355CB227FE362500885417 /* ViewController.swift in Sources */,
 				DD355CAE27FE362500885417 /* AppDelegate.swift in Sources */,
 				DD355CC427FE376400885417 /* ShoeDetailView.swift in Sources */,
+				DD9EC07E2804D44100D3F194 /* HorizontalPickerView.swift in Sources */,
 				DD355CB027FE362500885417 /* SceneDelegate.swift in Sources */,
 				DD355CCC27FE3B2100885417 /* NavigationBarUIView.swift in Sources */,
 				DD1938A827FF916500D77CBD /* CarouselImageView.swift in Sources */,
